@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\ProductosController;
+use App\Http\Controllers\VentasController;
+
 
 
 /*
@@ -15,15 +18,12 @@ use App\Http\Controllers\ClientesController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/liz', function () {
-    return 'liz';
-});
 
-// Route::get('clientes', [ClientesController::class, 'index']);
+Route::get('/', [ProductosController::class, 'index']);
 
 Route::resource('clientes', ClientesController::class);
 
