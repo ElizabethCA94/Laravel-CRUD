@@ -27,20 +27,17 @@
             <tbody>
             @foreach ($productos as $producto)
                 <tr>
-                    {{-- @foreach ($producto->ventas as $venta)
-                    <td>{{ $venta }}</td> --}}
-                    {{-- @endforeach --}}
                     <td>{{$loop->iteration}}</td>
                     <td>{{$producto->nombre}}</td>
                     <td>{{$producto->descripcion}}</td>
                     <td>{{$producto->precio}}</td>
                     <td>
-                        <a href="{{route('productos.edit',$producto->producto_id)}}">
+                        <a href="{{route('productos.edit',$producto->id)}}">
                             <button class="btn btn-primary">
                                 Editar
                             </button>
                         </a>
-                        <form action="{{route('productos.destroy',$producto->producto_id)}}" method="post">
+                        <form action="{{route('productos.destroy',$producto->id)}}" method="post">
                             @method('DELETE')
                             @csrf
                             <button type="submit" class="btn btn-danger">

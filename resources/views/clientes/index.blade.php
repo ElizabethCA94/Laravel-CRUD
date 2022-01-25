@@ -17,7 +17,6 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Identificacion</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Telefono</th>
@@ -28,18 +27,17 @@
             @foreach ($clientes as $cliente)
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$cliente->identificacion}}</td>
                     <td>{{$cliente->nombre}}</td>
                     <td>{{$cliente->apellido}}</td>
                     <td>{{$cliente->telefono}}</td>
                     <td>{{$cliente->direccion}}</td>
                     <td>
-                        <a href="{{route('clientes.edit',$cliente->cliente_id)}}">
+                        <a href="{{route('clientes.edit',$cliente->id)}}">
                             <button class="btn btn-primary">
                                 Editar
                             </button>
                         </a>
-                        <form action="{{route('clientes.destroy',$cliente->cliente_id)}}" method="post">
+                        <form action="{{route('clientes.destroy',$cliente->id)}}" method="post">
                             @method('DELETE')
                             @csrf
                             <button type="submit" class="btn btn-danger">

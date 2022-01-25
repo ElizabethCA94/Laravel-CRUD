@@ -22,14 +22,15 @@
             <tbody>
             @foreach ($ventas as $venta)
                 <tr>
-                    {{-- <td>{{$loop->iteration}}</td> --}}
                     <td>{{$venta->id }}</td>
-                    {{-- <td>{{$venta->productos }}</td> --}}
-                    {{-- <td>{{$venta->cliente}}</td> --}}
                     @foreach ($venta->productos as $producto)
                     <td>{{ $producto->nombre }}</td>
                     @endforeach
-                    {{-- <td>
+                    {{-- @foreach ($venta->clientes as $cliente)
+                    <td>{{ $cliente->nombre }}</td>
+                    @endforeach --}}
+                    <td>{{ $venta->cliente }}</td>
+                    <td>
                         <a href="{{route('ventas.edit',$venta->id)}}">
                             <button class="btn btn-primary">
                                 Editar
@@ -42,7 +43,7 @@
                                 Eliminar
                             </button>
                         </form>
-                    </td> --}}
+                    </td>
                 </tr>
             @endforeach
             </tbody>

@@ -81,9 +81,8 @@ class VentasController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'nombres' => 'required',
-            'precios' => 'required',
-            'descripcion' => 'required',
+            'producto' => 'required',
+            'cliente' => 'required',
         ]);
 
         $venta = Venta::find($id);

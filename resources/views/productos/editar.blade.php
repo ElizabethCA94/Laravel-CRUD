@@ -5,7 +5,7 @@
 <body>
     <div class="container text-center">
         <h1>Edición de productos</h1>
-        <form action="{{route('productos.update', $producto->producto_id)}}" method="POST">
+        <form action="{{route('productos.update', $producto->id)}}" method="POST">
             @method('PUT')
             @csrf
             <div class="form-group">

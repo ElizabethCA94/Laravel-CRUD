@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Clientes;
+use App\Models\Cliente;
 
 class ClientesController extends Controller
 {
@@ -14,7 +14,7 @@ class ClientesController extends Controller
      */
     public function index()
     {
-        $clientes = Clientes::all();
+        $clientes = Cliente::all();
         //retorne una vista 
         return view('clientes.index')->with('clientes', $clientes);
     }
@@ -38,8 +38,7 @@ class ClientesController extends Controller
     public function store(Request $request)
     {
         //instancia de la clase Clientes, -> son campos de la bd y -> son name del formulario
-        $cliente = new Clientes();
-        $cliente->cliente_id = $request->cliente_id;
+        $cliente = new Cliente();
         $cliente->nombre = $request->nombres;
         $cliente->apellido= $request->apellidos;
         $cliente->telefono = $request->telefonos;
@@ -68,7 +67,7 @@ class ClientesController extends Controller
      */
     public function edit($id)
     {
-        $cliente = Clientes::find($id);
+        $cliente = Cliente::find($id);
         return view('clientes.editar')->with('cliente', $cliente);
     }
 
@@ -82,15 +81,13 @@ class ClientesController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'cliente_id' => 'required',
             'nombres' => 'required',
             'apellidos' => 'required',
             'telefonos' => 'required',
             'direccion' => 'required',
         ]);
 
-        $cliente = Clientes::find($id);
-        $cliente->cliente_id = $request->cliente_id;
+        $cliente = Cliente::find($id);
         $cliente->nombre = $request->nombres;
         $cliente->apellido= $request->apellidos;
         $cliente->telefono = $request->telefonos;
@@ -108,7 +105,7 @@ class ClientesController extends Controller
      */
     public function destroy($id)
     {
-        $cliente = Clientes::find($id);
+        $cliente = Cliente::find($id);
         $cliente->delete();
         return redirect()-> route('clientes.index');
 

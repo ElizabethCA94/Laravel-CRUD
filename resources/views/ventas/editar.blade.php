@@ -4,22 +4,18 @@
 
 <body>
     <div class="container text-center">
-        <h1>Edición de productos</h1>
-        <form action="{{route('productos.update', $producto->producto_id)}}" method="POST">
+        <h1>Edición de ventas</h1>
+        <form action="{{route('ventas.update', $ventas->id)}}" method="POST">
             @method('PUT')
             @csrf
             <div class="form-group">
                 <label for="nombre"></label>
+                <input type="text" class="form-control" name="nombres" id="nombres" placeholder="Nombre" value={{$ventas->nombre}}>
+            </div>
+            {{-- <div class="form-group">
+                <label for="nombre"></label>
                 <input type="text" class="form-control" name="nombres" id="nombres" placeholder="Nombre" value={{$producto->nombre}}>
-            </div>
-            <div class="form-group">
-                <label for="descripcion"></label>
-                <input type="text" class="form-control" name="descripcion" id="descripcion" placeholder="Descripcion" value={{$producto->descripcion}}>
-            </div>
-            <div class="form-group">
-                <label for="precio"></label>
-                <input type="text" class="form-control" name="precios" id="precios" placeholder="Precio" value={{$producto->precio}}>
-            </div>
+            </div> --}}
             <button type="submit" class="btn btn-primary mt-4">Editar</button>
         </form>
         @if(isset($errors) && $errors->any())

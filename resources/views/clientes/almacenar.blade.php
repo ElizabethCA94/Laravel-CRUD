@@ -8,10 +8,6 @@
         <form action="{{route('clientes.store')}}" method="POST">
             @csrf
             <div class="form-group">
-                <label for="Identificacion"></label>
-                <input type="text" class="form-control" name="identificacion" id="identificacion" placeholder="Identificacion" >
-            </div>
-            <div class="form-group">
                 <label for="nombre"></label>
                 <input type="text" class="form-control" name="nombres" id="nombres" placeholder="Nombre" >
             </div>

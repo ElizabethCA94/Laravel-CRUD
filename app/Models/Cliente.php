@@ -5,15 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Venta extends Model
+class Cliente extends Model
 {
     use HasFactory;
-    protected $table = 'ventas';
+    protected $table = 'clientes';
     protected $primaryKey = 'id';
 
-    public function productos()
-    {
-        return $this->belongsToMany('App\Models\Producto');
+    public function ventas(){
+        return $this->hasMany('App\Models\Venta');
     }
-
 }
