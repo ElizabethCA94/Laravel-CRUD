@@ -8,6 +8,11 @@ Daniel Santiago Gaviria
 
 Elizabeth Carreño Alvarez
 
+
+En la rama develop se encuentran todos los commits
+
+
+
 A partir del ejercicio del CRUD de Productos que se realizó en clase, agregar dos tablas (Clientes y Ventas). Hacer el CRUD de clientes.
 
 La tabla clientes tiene el código del cliente y el código del producto.
