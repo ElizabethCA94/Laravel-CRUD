@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Cliente;
+use App\Models\Producto;
 
-class ClientesController extends Controller
+class ProductosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,10 @@ class ClientesController extends Controller
      */
     public function index()
     {
-        $clientes = Cliente::all();
+        $productos = Producto::all();
         //retorne una vista 
-        return view('clientes.index')->with('clientes', $clientes);
+        return view('productos.index')->with('productos', $productos);
+        // return view('Productos.index');
     }
 
     /**
@@ -26,7 +27,7 @@ class ClientesController extends Controller
      */
     public function create()
     {
-        return view('clientes.almacenar');
+        return view('productos.almacenar');
     }
 
     /**
@@ -37,15 +38,17 @@ class ClientesController extends Controller
      */
     public function store(Request $request)
     {
-        //instancia de la clase Clientes, -> son campos de la bd y -> son name del formulario
-        $cliente = new Cliente();
-        $cliente->nombre = $request->nombres;
-        $cliente->apellido= $request->apellidos;
-        $cliente->telefono = $request->telefonos;
-        $cliente->direccion = $request->direccion;
-        $cliente->save();
+        //instancia de la clase Productos, -> son campos de la bd y -> son name del formulario
+        $producto = new Producto();
+        $producto->nombre = $request->nombres;
+        $producto->descripcion= $request->descripcion;
+        $producto->precio = $request->precios;
+        $producto->imagen = 'Imagen de prueba';
+        $producto->save();
 
-        return redirect()-> route('clientes.index');   
+        return redirect()-> route('productos.index');
+        
+        
     }
 
     /**
@@ -67,8 +70,8 @@ class ClientesController extends Controller
      */
     public function edit($id)
     {
-        $cliente = Cliente::find($id);
-        return view('clientes.editar')->with('cliente', $cliente);
+        $producto = Producto::find($id);
+        return view('productos.editar')->with('producto', $producto);
     }
 
     /**
@@ -82,19 +85,18 @@ class ClientesController extends Controller
     {
         $validated = $request->validate([
             'nombres' => 'required',
-            'apellidos' => 'required',
-            'telefonos' => 'required',
-            'direccion' => 'required',
+            'precios' => 'required',
+            'descripcion' => 'required',
         ]);
 
-        $cliente = Cliente::find($id);
-        $cliente->nombre = $request->nombres;
-        $cliente->apellido= $request->apellidos;
-        $cliente->telefono = $request->telefonos;
-        $cliente->direccion = $request->direccion;
-        $cliente->save();
+        $producto = Producto::find($id);
+        $producto->nombre = $request->nombres;
+        $producto->descripcion= $request->descripcion;
+        $producto->precio = $request->precios;
+        $producto->imagen = 'Imagen de prueba';
+        $producto->save();
 
-        return redirect()-> route('clientes.index');
+        return redirect()-> route('productos.index');
     }
 
     /**
@@ -105,9 +107,9 @@ class ClientesController extends Controller
      */
     public function destroy($id)
     {
-        $cliente = Cliente::find($id);
-        $cliente->delete();
-        return redirect()-> route('clientes.index');
+        $producto = Producto::find($id);
+        $producto->delete();
+        return redirect()-> route('productos.index');
 
     }
 }
