@@ -20,28 +20,31 @@
                 </tr>
             </thead>
             <tbody>
-            {{-- @foreach ($productos as $producto)
+            @foreach ($ventas as $venta)
                 <tr>
-                    <td>{{$loop->iteration}}</td>
-                    <td>{{$producto->nombre}}</td>
-                    <td>{{$producto->descripcion}}</td>
-                    <td>{{$producto->precio}}</td>
-                    <td>
-                        <a href="{{route('productos.edit',$producto->producto_id)}}">
+                    {{-- <td>{{$loop->iteration}}</td> --}}
+                    <td>{{$venta->id }}</td>
+                    {{-- <td>{{$venta->productos }}</td> --}}
+                    {{-- <td>{{$venta->cliente}}</td> --}}
+                    @foreach ($venta->productos as $producto)
+                    <td>{{ $producto->nombre }}</td>
+                    @endforeach
+                    {{-- <td>
+                        <a href="{{route('ventas.edit',$venta->id)}}">
                             <button class="btn btn-primary">
                                 Editar
                             </button>
                         </a>
-                        <form action="{{route('productos.destroy',$producto->producto_id)}}" method="post">
+                        <form action="{{route('ventas.destroy',$venta->id)}}" method="post">
                             @method('DELETE')
                             @csrf
                             <button type="submit" class="btn btn-danger">
                                 Eliminar
                             </button>
                         </form>
-                    </td>
+                    </td> --}}
                 </tr>
-            @endforeach --}}
+            @endforeach
             </tbody>
         </table>
     </div>

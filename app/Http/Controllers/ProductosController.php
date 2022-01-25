@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Productos;
+use App\Models\Producto;
 
 class ProductosController extends Controller
 {
@@ -14,7 +14,7 @@ class ProductosController extends Controller
      */
     public function index()
     {
-        $productos = Productos::all();
+        $productos = Producto::all();
         //retorne una vista 
         return view('productos.index')->with('productos', $productos);
         // return view('Productos.index');
@@ -39,7 +39,7 @@ class ProductosController extends Controller
     public function store(Request $request)
     {
         //instancia de la clase Productos, -> son campos de la bd y -> son name del formulario
-        $producto = new Productos();
+        $producto = new Producto();
         $producto->nombre = $request->nombres;
         $producto->descripcion= $request->descripcion;
         $producto->precio = $request->precios;
@@ -70,7 +70,7 @@ class ProductosController extends Controller
      */
     public function edit($id)
     {
-        $producto = Productos::find($id);
+        $producto = Producto::find($id);
         return view('productos.editar')->with('producto', $producto);
     }
 
@@ -89,7 +89,7 @@ class ProductosController extends Controller
             'descripcion' => 'required',
         ]);
 
-        $producto = Productos::find($id);
+        $producto = Producto::find($id);
         $producto->nombre = $request->nombres;
         $producto->descripcion= $request->descripcion;
         $producto->precio = $request->precios;
@@ -107,7 +107,7 @@ class ProductosController extends Controller
      */
     public function destroy($id)
     {
-        $producto = Productos::find($id);
+        $producto = Producto::find($id);
         $producto->delete();
         return redirect()-> route('productos.index');
 

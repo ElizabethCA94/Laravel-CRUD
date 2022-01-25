@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Ventas;
+use App\Models\Venta;
 use App\Models\Productos;
 
 
@@ -16,7 +16,7 @@ class VentasController extends Controller
      */
     public function index()
     {
-        $ventas = Ventas::all();
+        $ventas = Venta::all();
         return view('ventas.index')->with('ventas', $ventas);
     }
 
@@ -38,7 +38,7 @@ class VentasController extends Controller
     public function store(Request $request)
     {
         //instancia de la clase Ventas, -> son campos de la bd y -> son name del formulario
-        $venta = new Ventas();
+        $venta = new Venta();
         
         $venta->save();
 
@@ -67,7 +67,7 @@ class VentasController extends Controller
      */
     public function edit($id)
     {
-        $venta = Ventas::find($id);
+        $venta = Venta::find($id);
         return view('ventas.editar')->with('venta', $venta);
     }
 
@@ -86,7 +86,7 @@ class VentasController extends Controller
             'descripcion' => 'required',
         ]);
 
-        $venta = Ventas::find($id);
+        $venta = Venta::find($id);
         $venta->save();
 
         return redirect()-> route('ventas.index');
@@ -100,7 +100,7 @@ class VentasController extends Controller
      */
     public function destroy($id)
     {
-        $venta = Ventas::find($id);
+        $venta = Venta::find($id);
         $venta->delete();
         return redirect()-> route('ventas.index');
 

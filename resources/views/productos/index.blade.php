@@ -11,6 +11,8 @@
                 Crear
             </button>
         </a>
+
+        
         
         <table class="table table-striped nt-4">
             <thead>
@@ -25,6 +27,9 @@
             <tbody>
             @foreach ($productos as $producto)
                 <tr>
+                    {{-- @foreach ($producto->ventas as $venta)
+                    <td>{{ $venta }}</td> --}}
+                    {{-- @endforeach --}}
                     <td>{{$loop->iteration}}</td>
                     <td>{{$producto->nombre}}</td>
                     <td>{{$producto->descripcion}}</td>

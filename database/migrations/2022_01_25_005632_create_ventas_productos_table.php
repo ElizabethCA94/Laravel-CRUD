@@ -13,12 +13,12 @@ class CreateVentasProductosTable extends Migration
      */
     public function up()
     {
-        Schema::create('ventas_productos', function (Blueprint $table) {
+        Schema::create('producto_venta', function (Blueprint $table) {
             $table->id();
-            $table->integer('venta_id');
-            $table->integer('producto_id');
-            $table->foreign('venta_id')->references('producto_id')->on('productos')->onDelete('cascade');
-            $table->foreign('producto_id')->references('venta_id')->on('ventas')->onDelete('cascade');
+            $table->unsignedInteger('producto_id');
+            $table->unsignedInteger('venta_id');
+            $table->foreign('producto_id')->references('id')->on('productos')->onDelete('cascade');
+            $table->foreign('venta_id')->references('id')->on('ventas')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateVentasProductosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ventas_productos');
+        Schema::dropIfExists('producto_venta');
     }
 }
