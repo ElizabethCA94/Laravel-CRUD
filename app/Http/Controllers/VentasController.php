@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Clientes;
+use App\Models\Ventas;
+use App\Models\Productos;
 
-class ClientesController extends Controller
+
+class VentasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +16,8 @@ class ClientesController extends Controller
      */
     public function index()
     {
-        $clientes = Clientes::all();
-        //retorne una vista 
-        return view('clientes.index')->with('clientes', $clientes);
+        $ventas = Ventas::all();
+        return view('ventas.index')->with('ventas', $ventas);
     }
 
     /**
@@ -26,9 +27,8 @@ class ClientesController extends Controller
      */
     public function create()
     {
-        return view('clientes.almacenar');
+        return view('ventas.almacenar');
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -37,16 +37,15 @@ class ClientesController extends Controller
      */
     public function store(Request $request)
     {
-        //instancia de la clase Clientes, -> son campos de la bd y -> son name del formulario
-        $cliente = new Clientes();
-        $cliente->cliente_id = $request->cliente_id;
-        $cliente->nombre = $request->nombres;
-        $cliente->apellido= $request->apellidos;
-        $cliente->telefono = $request->telefonos;
-        $cliente->direccion = $request->direccion;
-        $cliente->save();
+        //instancia de la clase Ventas, -> son campos de la bd y -> son name del formulario
+        $venta = new Ventas();
+        
+        $venta->save();
 
-        return redirect()-> route('clientes.index');   
+
+        return redirect()-> route('ventas.index');
+        
+        
     }
 
     /**
@@ -68,8 +67,8 @@ class ClientesController extends Controller
      */
     public function edit($id)
     {
-        $cliente = Clientes::find($id);
-        return view('clientes.editar')->with('cliente', $cliente);
+        $venta = Ventas::find($id);
+        return view('ventas.editar')->with('venta', $venta);
     }
 
     /**
@@ -82,22 +81,15 @@ class ClientesController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'cliente_id' => 'required',
             'nombres' => 'required',
-            'apellidos' => 'required',
-            'telefonos' => 'required',
-            'direccion' => 'required',
+            'precios' => 'required',
+            'descripcion' => 'required',
         ]);
 
-        $cliente = Clientes::find($id);
-        $cliente->cliente_id = $request->cliente_id;
-        $cliente->nombre = $request->nombres;
-        $cliente->apellido= $request->apellidos;
-        $cliente->telefono = $request->telefonos;
-        $cliente->direccion = $request->direccion;
-        $cliente->save();
+        $venta = Ventas::find($id);
+        $venta->save();
 
-        return redirect()-> route('clientes.index');
+        return redirect()-> route('ventas.index');
     }
 
     /**
@@ -108,9 +100,9 @@ class ClientesController extends Controller
      */
     public function destroy($id)
     {
-        $cliente = Clientes::find($id);
-        $cliente->delete();
-        return redirect()-> route('clientes.index');
+        $venta = Ventas::find($id);
+        $venta->delete();
+        return redirect()-> route('ventas.index');
 
     }
 }

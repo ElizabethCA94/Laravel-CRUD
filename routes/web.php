@@ -26,3 +26,8 @@ Route::get('/liz', function () {
 // Route::get('clientes', [ClientesController::class, 'index']);
 
 Route::resource('clientes', ClientesController::class);
+
+Route::resource('ventas', VentasController::class);
+
+Route::resource('productos', ProductosController::class);
+
