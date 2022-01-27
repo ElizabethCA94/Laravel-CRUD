@@ -4,20 +4,24 @@
 
 <body>
     <div class="container text-center">
-        <h1>Creación de productos</h1>
-        <form action="{{route('productos.store')}}" method="POST">
+        <h1>Creación de clientes</h1>
+        <form action="{{route('clientes.store')}}" method="POST">
             @csrf
             <div class="form-group">
                 <label for="nombre"></label>
                 <input type="text" class="form-control" name="nombres" id="nombres" placeholder="Nombre">
             </div>
             <div class="form-group">
-                <label for="descripcion"></label>
-                <input type="text" class="form-control" name="descripcion" id="descripcion" placeholder="Descripcion">
+                <label for="apellido"></label>
+                <input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Apellido">
             </div>
             <div class="form-group">
-                <label for="precio"></label>
-                <input type="text" class="form-control" name="precios" id="precios" placeholder="Precio">
+                <label for="telefono"></label>
+                <input type="text" class="form-control" name="telefonos" id="telefonos" placeholder="Telefono">
+            </div>
+            <div class="form-group">
+                <label for="direccion"></label>
+                <input type="text" class="form-control" name="direccion" id="direccion" placeholder="Direccion">
             </div>
             <button type="submit" class="btn btn-primary mt-4">Crear</button>
         </form>

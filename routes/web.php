@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\ProductosController;
+use App\Http\Controllers\VentasController;
+
+
 
 
 /*
@@ -26,3 +30,6 @@ Route::get('/liz', function () {
 // Route::get('clientes', [ClientesController::class, 'index']);
 
 Route::resource('clientes', ClientesController::class);
+Route::resource('productos', ProductosController::class);
+Route::resource('ventas', VentasController::class);
+

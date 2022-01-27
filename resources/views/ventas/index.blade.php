@@ -3,11 +3,11 @@
 @include('partes.head')
 
 <body>
-    <h1>Lista de clientes</h1>
+    <h1>Lista de ventas</h1>
 
     <div class="container text-center">
 
-        <a href="{{route('clientes.create')}}">
+        <a href="{{route('ventas.create')}}">
             <button class="btn btn-sucess">
                 Crear
             </button>
@@ -17,29 +17,32 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Identificacion</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Telefono</th>
-                    <th>Direccion</th>
+                    <th>Producto</th>
+                    <th>Cliente</th>
                 </tr>
             </thead>
             <tbody>
-            @foreach ($clientes as $cliente)
+            @foreach ($ventas as $venta)
                 <tr>
-                    <td>{{$loop->iteration}}</td>
-                    <td>{{$cliente->identificacion}}</td>
-                    <td>{{$cliente->nombre}}</td>
-                    <td>{{$cliente->apellido}}</td>
-                    <td>{{$cliente->telefono}}</td>
-                    <td>{{$cliente->direccion}}</td>
+                    {{-- <td>{{$loop->iteration}}</td> --}}
+                    <td>{{$venta->id }}</td>
+                    {{-- <td>{{$venta->productos }}</td> --}}
+                    {{-- <td>{{$venta->cliente}}</td> --}}
+                    @foreach ($venta->productos as $producto)
+                    <td>{{ $producto->nombre }}</td>
+                    @endforeach
+                    {{-- <td>
+                    {{-- @foreach ($venta->clientes as $cliente)
+                    <td>{{ $cliente->nombre }}</td>
+                    @endforeach --}}
+                    <td>{{ $venta->cliente }}</td>
                     <td>
-                        <a href="{{route('clientes.edit',$cliente->id)}}">
+                        <a href="{{route('ventas.edit',$venta->id)}}">
                             <button class="btn btn-primary">
                                 Editar
                             </button>
                         </a>
-                        <form action="{{route('clientes.destroy',$cliente->id)}}" method="post">
+                        <form action="{{route('ventas.destroy',$venta->id)}}" method="post">
                             @method('DELETE')
                             @csrf
                             <button type="submit" class="btn btn-danger">
