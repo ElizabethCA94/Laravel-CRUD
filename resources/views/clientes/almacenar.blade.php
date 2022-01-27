@@ -3,8 +3,8 @@
 @include('partes.head')
 
 <body>
-    <div class="container text-center">
-        <h1>Creación de clientes</h1>
+    <div id="cuerpo-pagina" class="container text-center">
+        <h4>Creación de clientes</h4>
         <form action="{{route('clientes.store')}}" method="POST">
             @csrf
             <div class="form-group">

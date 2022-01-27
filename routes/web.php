@@ -31,3 +31,6 @@ Route::resource('ventas', VentasController::class);
 
 Route::resource('productos', ProductosController::class);
 
+// Route::get('ventas/add-producto', [VentasController::class, 'addProducto']);
+
+

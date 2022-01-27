@@ -3,12 +3,10 @@
 @include('partes.head')
 
 <body>
-    <h1>Lista de clientes</h1>
-
-    <div class="container text-center">
-
+    <div id="cuerpo-pagina" class="container text-center">
+        <h4>Lista de clientes</h4>
         <a href="{{route('clientes.create')}}">
-            <button class="btn btn-sucess">
+            <button class="btn btn-success btn-sm my-1 mb-3">
                 Crear
             </button>
         </a>
@@ -32,18 +30,20 @@
                     <td>{{$cliente->telefono}}</td>
                     <td>{{$cliente->direccion}}</td>
                     <td>
-                        <a href="{{route('clientes.edit',$cliente->id)}}">
-                            <button class="btn btn-primary">
-                                Editar
-                            </button>
-                        </a>
-                        <form action="{{route('clientes.destroy',$cliente->id)}}" method="post">
-                            @method('DELETE')
-                            @csrf
-                            <button type="submit" class="btn btn-danger">
-                                Eliminar
-                            </button>
-                        </form>
+                        <div class="d-flex justify-content-sm-center">
+                            <a href="{{route('clientes.edit',$cliente->id)}}">
+                                <button class="btn btn-primary btn-sm">
+                                    Editar
+                                </button>
+                            </a>
+                            <form action="{{route('clientes.destroy',$cliente->id)}}" method="post">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit" class="btn btn-danger btn-sm mx-1">
+                                    Eliminar
+                                </button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
             @endforeach

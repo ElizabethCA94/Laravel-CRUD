@@ -3,8 +3,8 @@
 @include('partes.head')
 
 <body>
-    <div class="container text-center">
-        <h1>Edición de clientes</h1>
+    <div id="cuerpo-pagina" class="container text-center">
+        <h4>Edición de clientes</h4>
         <form action="{{route('clientes.update', $cliente->id)}}" method="POST">
             @method('PUT')
             @csrf

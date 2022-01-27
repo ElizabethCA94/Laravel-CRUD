@@ -1,17 +1,15 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>CRUD</title>
-
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/c12e9cff2f.js" crossorigin="anonymous"></script>
-</head>
+  <link rel="stylesheet" href="{{ asset('styles.css') }}">
 
-<body>
-  <div class="pos-f-t">
+  {{-- <div class="pos-f-t"> --}}
     <div class="collapse" id="navbarToggleExternalContent">
       <div class="bg-dark p-4">
         <h5 class="text-white h4"></h5>
@@ -42,7 +40,10 @@
         </form>
       </div>
     </nav>
-  </div>
+  {{-- </div> --}}
+
+</head>
+<body>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>

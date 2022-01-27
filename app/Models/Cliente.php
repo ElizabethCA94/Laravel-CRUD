@@ -10,8 +10,4 @@ class Cliente extends Model
     use HasFactory;
     protected $table = 'clientes';
     protected $primaryKey = 'id';
-
-    public function ventas(){
-        return $this->hasMany('App\Models\Venta');
-    }
 }

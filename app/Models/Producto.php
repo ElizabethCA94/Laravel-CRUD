@@ -14,6 +14,6 @@ class Producto extends Model
 
     public function ventas()
     {
-        return $this->belongsToMany('App\Models\Venta');
+        return $this->belongsToMany(Venta::class, 'producto_venta');
     }
 }

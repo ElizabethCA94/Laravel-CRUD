@@ -13,7 +13,12 @@ class Venta extends Model
 
     public function productos()
     {
-        return $this->belongsToMany('App\Models\Producto');
+        return $this->belongsToMany(Producto::class, 'producto_venta');
+    }
+
+    public function cliente()
+    {
+        return $this->belongsTo(Cliente::class);
     }
 
 }
