@@ -19,9 +19,7 @@ use App\Http\Controllers\VentasController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ProductosController::class, 'index']);
 
 Route::get('/liz', function () {
     return 'liz';
