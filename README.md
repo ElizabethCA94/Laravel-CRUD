@@ -4,8 +4,6 @@ Integrantes:
 
 Maria Camila Martinez
 
-Daniel Santiago Gaviria
-
 Elizabeth Carreño Alvarez
 
 A partir del ejercicio del CRUD de Productos que se realizó en clase, agregar dos tablas (Clientes y Ventas). Hacer el CRUD de clientes.
