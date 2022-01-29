@@ -6,7 +6,7 @@ Maria Camila Martinez
 
 Elizabeth Carreño Alvarez
 
-Daniel Santiago
+Daniel Santiago Gaviria
 
 
 En la rama develop se encuentran todos los commits
